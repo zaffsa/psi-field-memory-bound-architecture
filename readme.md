@@ -4,7 +4,6 @@ I'm an **independent researcher, working solo and self-funded**. This repository
 of an experiment I ran: an original, linear-time (**O(n)**) language model architecture of my own design,
 trained head-to-head against a strong published baseline (**Mamba-2**) under identical conditions.
 
-Everything below is backed by a raw training log in [`logs/`](logs/). Nothing is cherry-picked, and the
 architecture's internals are **not** disclosed here — this is about *what it does*, not *how it works*.
 
 ---
@@ -14,7 +13,7 @@ architecture's internals are **not** disclosed here — this is about *what it d
 Both models: **127M parameters · 2.0B tokens · same corpus (FineWeb-Edu) · same seeds.** The table below
 is a **high-resolution held-out evaluation** of the two final checkpoints on the same validation set —
 ~19.6M tokens scanned, **544,029 qualifying retrieval events**, so even the long-range rows are on solid
-statistical footing (n and 95% confidence intervals are in [`logs/eval_highres_2B.log`](logs/eval_highres_2B.log)):
+statistical footing (n and 95% confidence intervals are in [`eval_highres_2B.log`](eval_highres_2B.log)):
 
 | final (2.0B tokens) | **Psi-field** | Mamba-2 | verdict |
 |---|---|---|---|
@@ -73,7 +72,7 @@ Validating this at larger scale is what I intend to use **AMD Developer Cloud** 
 - **Pure PyTorch, no vendor-locked kernels** — runs anywhere without modification.
 - **Ran unmodified on a single AMD MI300X** at ~100k tokens/second.
 - A **7B-parameter** variant fits on **one** MI300X.
-- Fully reproducible evaluation; every number here traces to a line in [`logs/`](logs/).
+- Fully reproducible evaluation; every number here traces to a line in [`/`](/).
 
 All of this was done by **one person**, on a self-funded budget.
 
@@ -99,9 +98,9 @@ only, not mechanism.
 
 ## What's in here
 
-- [`logs/psi-field_127m.log`](logs/psi-field_127m.log) — full raw training log of my model.
-- [`logs/mamba2_127m.log`](logs/mamba2_127m.log) — full raw training log of the Mamba-2 baseline.
-- [`logs/eval_highres_2B.log`](logs/eval_highres_2B.log) — the 544k-event held-out evaluation the results
+- [`psi-field_127m.log`](psi-field_127m.log) — full raw training log of my model.
+- [`mamba2_127m.log`](mamba2_127m.log) — full raw training log of the Mamba-2 baseline.
+- [`eval_highres_2B.log`](eval_highres_2B.log) — the 544k-event held-out evaluation the results
   table is built from, with confidence intervals.
 
 Every claim in this README is a line in one of those files.

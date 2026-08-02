@@ -58,7 +58,6 @@ reached roughly **100,000 tokens/second**, and a scaled-up **7-billion-parameter
 on **one** card. Because cost scales with memory rather than compute, this is a regime where AMD hardware
 stops being a second-class "port" and becomes a first-class target.
 
-Validating this at larger scale is what I intend to use **AMD Developer Cloud** credits for.
 
 ---
 
@@ -91,8 +90,7 @@ only, not mechanism.
 - **The advantage is concentrated at short range.** Beyond ~512 tokens, my model and the baseline are
   statistically tied — the decisive wins are in short-range recall and in-context retrieval, not at long
   distances. I'm not claiming a long-range edge, because the data doesn't show one.
-- This is a **127M-parameter** study. Larger-scale confirmation is the next step (and the reason for the
-  AMD credits request).
+- This is a **127M-parameter** study. Larger-scale confirmation is the next step 
 
 ---
 

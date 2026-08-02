@@ -1,0 +1,423 @@
+# Mamba-2 | Chinchilla 2.0B tok | 5086 steps | eff_bs 48 (393k tok/step) | train 2.00B val 20M
+# 127.1M params (mlp7325)
+# torch.compile OFF (eager; checkpoint fits large batch)
+# grad_checkpoint=False | fused_adam=try
+#   step 0/5086 loss=10.958 lr=0.00e+00 0M 35k tok/s 11.4s/step
+#   step 50/5086 loss=7.132 lr=2.97e-04 20M 72k tok/s 5.5s/step
+##  step 50/5086 0.02B tok 0.08h
+##    PPL all=1233.41 | RECOVERABLE(induction)=73536.27 | rest=1098.75 (n_rec=22529)
+##    RECALL near<512=0.000[0.000-0.000]n20496 | mid512-2048=0.000[0.000-0.000]n1741 | far2k-4k=0.000[0.000-0.000]n241 | xfar4k-8k=0.000[0.000-0.000]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 100/5086 loss=6.243 lr=5.94e-04 40M 71k tok/s 5.6s/step
+##  step 100/5086 0.04B tok 0.16h
+##    PPL all=522.79 | RECOVERABLE(induction)=15197.74 | rest=475.27 (n_rec=22529)
+##    RECALL near<512=0.000[0.000-0.000]n20496 | mid512-2048=0.000[0.000-0.000]n1741 | far2k-4k=0.000[0.000-0.000]n241 | xfar4k-8k=0.000[0.000-0.000]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 150/5086 loss=5.774 lr=6.00e-04 59M 70k tok/s 5.6s/step
+##  step 150/5086 0.06B tok 0.24h
+##    PPL all=336.93 | RECOVERABLE(induction)=7838.60 | rest=308.24 (n_rec=22529)
+##    RECALL near<512=0.008[0.007-0.010]n20496 | mid512-2048=0.013[0.008-0.019]n1741 | far2k-4k=0.021[0.004-0.037]n241 | xfar4k-8k=0.039[0.000-0.098]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 200/5086 loss=5.392 lr=5.99e-04 79M 70k tok/s 5.6s/step
+##  step 200/5086 0.08B tok 0.32h
+##    PPL all=249.61 | RECOVERABLE(induction)=4303.68 | rest=230.30 (n_rec=22529)
+##    RECALL near<512=0.029[0.027-0.031]n20496 | mid512-2048=0.039[0.031-0.048]n1741 | far2k-4k=0.083[0.050-0.120]n241 | xfar4k-8k=0.118[0.039-0.216]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 250/5086 loss=5.293 lr=5.99e-04 99M 70k tok/s 5.6s/step
+##  step 250/5086 0.10B tok 0.39h
+##    PPL all=186.00 | RECOVERABLE(induction)=2086.67 | rest=173.71 (n_rec=22529)
+##    RECALL near<512=0.057[0.054-0.061]n20496 | mid512-2048=0.076[0.063-0.088]n1741 | far2k-4k=0.120[0.083-0.162]n241 | xfar4k-8k=0.137[0.059-0.235]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 300/5086 loss=4.892 lr=5.98e-04 118M 70k tok/s 5.6s/step
+##  step 300/5086 0.12B tok 0.47h
+##    PPL all=153.85 | RECOVERABLE(induction)=1285.50 | rest=144.88 (n_rec=22529)
+##    RECALL near<512=0.081[0.078-0.085]n20496 | mid512-2048=0.113[0.098-0.128]n1741 | far2k-4k=0.145[0.100-0.191]n241 | xfar4k-8k=0.196[0.098-0.314]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 350/5086 loss=4.886 lr=5.97e-04 138M 70k tok/s 5.6s/step
+##  step 350/5086 0.14B tok 0.55h
+##    PPL all=130.38 | RECOVERABLE(induction)=779.88 | rest=123.95 (n_rec=22529)
+##    RECALL near<512=0.114[0.110-0.119]n20496 | mid512-2048=0.145[0.128-0.161]n1741 | far2k-4k=0.187[0.137-0.237]n241 | xfar4k-8k=0.196[0.098-0.314]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 400/5086 loss=4.665 lr=5.95e-04 158M 70k tok/s 5.6s/step
+##  step 400/5086 0.16B tok 0.63h
+##    PPL all=116.50 | RECOVERABLE(induction)=541.89 | rest=111.55 (n_rec=22529)
+##    RECALL near<512=0.140[0.135-0.145]n20496 | mid512-2048=0.160[0.143-0.177]n1741 | far2k-4k=0.191[0.141-0.241]n241 | xfar4k-8k=0.294[0.176-0.431]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 450/5086 loss=4.633 lr=5.93e-04 177M 70k tok/s 5.6s/step
+##  step 450/5086 0.18B tok 0.71h
+##    PPL all=104.78 | RECOVERABLE(induction)=410.00 | rest=100.82 (n_rec=22529)
+##    RECALL near<512=0.160[0.155-0.165]n20496 | mid512-2048=0.183[0.164-0.200]n1741 | far2k-4k=0.232[0.178-0.286]n241 | xfar4k-8k=0.314[0.196-0.451]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 500/5086 loss=4.603 lr=5.92e-04 197M 70k tok/s 5.6s/step
+##  step 500/5086 0.20B tok 0.78h
+##    PPL all=97.45 | RECOVERABLE(induction)=353.11 | rest=93.97 (n_rec=22529)
+##    RECALL near<512=0.170[0.165-0.176]n20496 | mid512-2048=0.196[0.178-0.214]n1741 | far2k-4k=0.224[0.170-0.278]n241 | xfar4k-8k=0.255[0.137-0.373]n51 | xxfar>8k=0.000[0.000-0.000]n0
+##  ckpt step 500
+#   step 550/5086 loss=4.416 lr=5.89e-04 217M 70k tok/s 5.6s/step
+##  step 550/5086 0.22B tok 0.86h
+##    PPL all=89.18 | RECOVERABLE(induction)=284.62 | rest=86.30 (n_rec=22529)
+##    RECALL near<512=0.189[0.183-0.194]n20496 | mid512-2048=0.203[0.184-0.221]n1741 | far2k-4k=0.261[0.207-0.315]n241 | xfar4k-8k=0.275[0.157-0.412]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 600/5086 loss=4.286 lr=5.87e-04 236M 70k tok/s 5.6s/step
+##  step 600/5086 0.24B tok 0.94h
+##    PPL all=84.11 | RECOVERABLE(induction)=244.25 | rest=81.62 (n_rec=22529)
+##    RECALL near<512=0.205[0.200-0.210]n20496 | mid512-2048=0.216[0.197-0.235]n1741 | far2k-4k=0.282[0.228-0.340]n241 | xfar4k-8k=0.294[0.176-0.431]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 650/5086 loss=4.338 lr=5.84e-04 256M 70k tok/s 5.6s/step
+##  step 650/5086 0.26B tok 1.02h
+##    PPL all=80.42 | RECOVERABLE(induction)=211.72 | rest=78.25 (n_rec=22529)
+##    RECALL near<512=0.220[0.215-0.226]n20496 | mid512-2048=0.229[0.210-0.249]n1741 | far2k-4k=0.274[0.220-0.328]n241 | xfar4k-8k=0.255[0.137-0.392]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 700/5086 loss=4.223 lr=5.81e-04 276M 70k tok/s 5.6s/step
+##  step 700/5086 0.28B tok 1.10h
+##    PPL all=76.06 | RECOVERABLE(induction)=196.29 | rest=74.05 (n_rec=22529)
+##    RECALL near<512=0.222[0.216-0.228]n20496 | mid512-2048=0.229[0.209-0.249]n1741 | far2k-4k=0.290[0.232-0.349]n241 | xfar4k-8k=0.314[0.196-0.451]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 750/5086 loss=4.326 lr=5.78e-04 295M 70k tok/s 5.6s/step
+##  step 750/5086 0.30B tok 1.18h
+##    PPL all=72.45 | RECOVERABLE(induction)=170.67 | rest=70.71 (n_rec=22529)
+##    RECALL near<512=0.242[0.236-0.248]n20496 | mid512-2048=0.241[0.221-0.261]n1741 | far2k-4k=0.328[0.270-0.386]n241 | xfar4k-8k=0.314[0.176-0.451]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 800/5086 loss=4.160 lr=5.74e-04 315M 71k tok/s 5.6s/step
+##  step 800/5086 0.31B tok 1.24h
+##    PPL all=69.75 | RECOVERABLE(induction)=147.04 | rest=68.30 (n_rec=22529)
+##    RECALL near<512=0.244[0.238-0.250]n20496 | mid512-2048=0.254[0.234-0.275]n1741 | far2k-4k=0.324[0.261-0.382]n241 | xfar4k-8k=0.294[0.176-0.431]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 850/5086 loss=4.247 lr=5.70e-04 335M 71k tok/s 5.5s/step
+##  step 850/5086 0.33B tok 1.31h
+##    PPL all=67.47 | RECOVERABLE(induction)=138.09 | rest=66.12 (n_rec=22529)
+##    RECALL near<512=0.260[0.254-0.266]n20496 | mid512-2048=0.257[0.237-0.277]n1741 | far2k-4k=0.295[0.237-0.349]n241 | xfar4k-8k=0.275[0.157-0.412]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 900/5086 loss=4.154 lr=5.66e-04 354M 72k tok/s 5.5s/step
+##  step 900/5086 0.35B tok 1.37h
+##    PPL all=65.55 | RECOVERABLE(induction)=121.51 | rest=64.41 (n_rec=22529)
+##    RECALL near<512=0.273[0.267-0.279]n20496 | mid512-2048=0.273[0.252-0.294]n1741 | far2k-4k=0.332[0.278-0.390]n241 | xfar4k-8k=0.333[0.196-0.471]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 950/5086 loss=4.125 lr=5.62e-04 374M 72k tok/s 5.4s/step
+##  step 950/5086 0.37B tok 1.44h
+##    PPL all=63.31 | RECOVERABLE(induction)=118.65 | rest=62.20 (n_rec=22529)
+##    RECALL near<512=0.271[0.265-0.278]n20496 | mid512-2048=0.260[0.240-0.280]n1741 | far2k-4k=0.324[0.266-0.382]n241 | xfar4k-8k=0.333[0.216-0.471]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1000/5086 loss=4.180 lr=5.58e-04 394M 72k tok/s 5.4s/step
+##  step 1000/5086 0.39B tok 1.51h
+##    PPL all=61.23 | RECOVERABLE(induction)=107.28 | rest=60.27 (n_rec=22529)
+##    RECALL near<512=0.283[0.277-0.289]n20496 | mid512-2048=0.280[0.259-0.301]n1741 | far2k-4k=0.328[0.270-0.386]n241 | xfar4k-8k=0.373[0.235-0.510]n51 | xxfar>8k=0.000[0.000-0.000]n0
+##  ckpt step 1000
+#   step 1050/5086 loss=3.987 lr=5.53e-04 413M 73k tok/s 5.4s/step
+##  step 1050/5086 0.41B tok 1.58h
+##    PPL all=59.62 | RECOVERABLE(induction)=101.41 | rest=58.74 (n_rec=22529)
+##    RECALL near<512=0.288[0.282-0.295]n20496 | mid512-2048=0.283[0.262-0.303]n1741 | far2k-4k=0.340[0.282-0.402]n241 | xfar4k-8k=0.353[0.216-0.490]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1100/5086 loss=3.970 lr=5.48e-04 433M 73k tok/s 5.4s/step
+##  step 1100/5086 0.43B tok 1.64h
+##    PPL all=58.00 | RECOVERABLE(induction)=94.26 | rest=57.21 (n_rec=22529)
+##    RECALL near<512=0.294[0.288-0.301]n20496 | mid512-2048=0.285[0.264-0.306]n1741 | far2k-4k=0.336[0.278-0.394]n241 | xfar4k-8k=0.373[0.254-0.510]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1150/5086 loss=4.029 lr=5.43e-04 453M 74k tok/s 5.3s/step
+##  step 1150/5086 0.45B tok 1.71h
+##    PPL all=57.08 | RECOVERABLE(induction)=84.96 | rest=56.44 (n_rec=22529)
+##    RECALL near<512=0.305[0.299-0.312]n20496 | mid512-2048=0.293[0.272-0.313]n1741 | far2k-4k=0.307[0.249-0.361]n241 | xfar4k-8k=0.353[0.216-0.490]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1200/5086 loss=3.896 lr=5.38e-04 472M 74k tok/s 5.3s/step
+##  step 1200/5086 0.47B tok 1.78h
+##    PPL all=55.57 | RECOVERABLE(induction)=78.09 | rest=55.04 (n_rec=22529)
+##    RECALL near<512=0.319[0.313-0.326]n20496 | mid512-2048=0.316[0.294-0.337]n1741 | far2k-4k=0.336[0.278-0.394]n241 | xfar4k-8k=0.412[0.275-0.549]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1250/5086 loss=3.966 lr=5.32e-04 492M 74k tok/s 5.3s/step
+##  step 1250/5086 0.49B tok 1.84h
+##    PPL all=54.34 | RECOVERABLE(induction)=74.77 | rest=53.85 (n_rec=22529)
+##    RECALL near<512=0.318[0.312-0.325]n20496 | mid512-2048=0.311[0.289-0.331]n1741 | far2k-4k=0.340[0.282-0.402]n241 | xfar4k-8k=0.392[0.255-0.529]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1300/5086 loss=3.934 lr=5.27e-04 512M 75k tok/s 5.3s/step
+##  step 1300/5086 0.51B tok 1.91h
+##    PPL all=53.36 | RECOVERABLE(induction)=74.46 | rest=52.86 (n_rec=22529)
+##    RECALL near<512=0.324[0.317-0.330]n20496 | mid512-2048=0.309[0.287-0.331]n1741 | far2k-4k=0.349[0.290-0.411]n241 | xfar4k-8k=0.392[0.255-0.529]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1350/5086 loss=3.903 lr=5.21e-04 531M 75k tok/s 5.2s/step
+##  step 1350/5086 0.53B tok 1.97h
+##    PPL all=52.46 | RECOVERABLE(induction)=65.95 | rest=52.12 (n_rec=22529)
+##    RECALL near<512=0.341[0.334-0.347]n20496 | mid512-2048=0.316[0.294-0.339]n1741 | far2k-4k=0.332[0.274-0.390]n241 | xfar4k-8k=0.392[0.255-0.529]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1400/5086 loss=3.955 lr=5.14e-04 551M 75k tok/s 5.2s/step
+##  step 1400/5086 0.55B tok 2.04h
+##    PPL all=51.47 | RECOVERABLE(induction)=65.06 | rest=51.13 (n_rec=22529)
+##    RECALL near<512=0.339[0.333-0.345]n20496 | mid512-2048=0.331[0.308-0.353]n1741 | far2k-4k=0.340[0.282-0.398]n241 | xfar4k-8k=0.412[0.275-0.549]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1450/5086 loss=3.881 lr=5.08e-04 571M 75k tok/s 5.2s/step
+##  step 1450/5086 0.57B tok 2.10h
+##    PPL all=50.72 | RECOVERABLE(induction)=60.83 | rest=50.46 (n_rec=22529)
+##    RECALL near<512=0.344[0.337-0.351]n20496 | mid512-2048=0.319[0.296-0.341]n1741 | far2k-4k=0.349[0.290-0.411]n241 | xfar4k-8k=0.412[0.275-0.549]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1500/5086 loss=3.824 lr=5.02e-04 590M 76k tok/s 5.2s/step
+##  step 1500/5086 0.59B tok 2.17h
+##    PPL all=49.89 | RECOVERABLE(induction)=58.88 | rest=49.66 (n_rec=22529)
+##    RECALL near<512=0.352[0.345-0.358]n20496 | mid512-2048=0.338[0.315-0.360]n1741 | far2k-4k=0.357[0.299-0.415]n241 | xfar4k-8k=0.431[0.294-0.569]n51 | xxfar>8k=0.000[0.000-0.000]n0
+##  ckpt step 1500
+#   step 1550/5086 loss=3.926 lr=4.95e-04 610M 76k tok/s 5.2s/step
+##  step 1550/5086 0.61B tok 2.23h
+##    PPL all=48.86 | RECOVERABLE(induction)=54.77 | rest=48.70 (n_rec=22529)
+##    RECALL near<512=0.362[0.355-0.369]n20496 | mid512-2048=0.345[0.322-0.366]n1741 | far2k-4k=0.373[0.315-0.432]n241 | xfar4k-8k=0.451[0.314-0.588]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1600/5086 loss=3.823 lr=4.88e-04 630M 76k tok/s 5.2s/step
+##  step 1600/5086 0.63B tok 2.30h
+##    PPL all=48.39 | RECOVERABLE(induction)=53.88 | rest=48.24 (n_rec=22529)
+##    RECALL near<512=0.358[0.352-0.365]n20496 | mid512-2048=0.349[0.327-0.372]n1741 | far2k-4k=0.378[0.315-0.440]n241 | xfar4k-8k=0.373[0.235-0.510]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1650/5086 loss=3.858 lr=4.81e-04 649M 76k tok/s 5.2s/step
+##  step 1650/5086 0.65B tok 2.37h
+##    PPL all=47.60 | RECOVERABLE(induction)=51.25 | rest=47.50 (n_rec=22529)
+##    RECALL near<512=0.368[0.361-0.375]n20496 | mid512-2048=0.338[0.315-0.360]n1741 | far2k-4k=0.386[0.324-0.448]n241 | xfar4k-8k=0.392[0.275-0.529]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1700/5086 loss=3.826 lr=4.74e-04 669M 77k tok/s 5.1s/step
+##  step 1700/5086 0.67B tok 2.43h
+##    PPL all=47.22 | RECOVERABLE(induction)=49.58 | rest=47.15 (n_rec=22529)
+##    RECALL near<512=0.363[0.357-0.370]n20496 | mid512-2048=0.342[0.320-0.364]n1741 | far2k-4k=0.369[0.311-0.432]n241 | xfar4k-8k=0.412[0.275-0.549]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1750/5086 loss=3.772 lr=4.67e-04 689M 77k tok/s 5.1s/step
+##  step 1750/5086 0.69B tok 2.50h
+##    PPL all=46.43 | RECOVERABLE(induction)=47.69 | rest=46.40 (n_rec=22529)
+##    RECALL near<512=0.373[0.367-0.380]n20496 | mid512-2048=0.350[0.328-0.373]n1741 | far2k-4k=0.394[0.336-0.461]n241 | xfar4k-8k=0.392[0.255-0.529]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1800/5086 loss=3.706 lr=4.59e-04 708M 77k tok/s 5.1s/step
+##  step 1800/5086 0.71B tok 2.56h
+##    PPL all=46.04 | RECOVERABLE(induction)=46.26 | rest=46.03 (n_rec=22529)
+##    RECALL near<512=0.377[0.371-0.384]n20496 | mid512-2048=0.354[0.331-0.377]n1741 | far2k-4k=0.407[0.344-0.469]n241 | xfar4k-8k=0.431[0.294-0.569]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1850/5086 loss=3.796 lr=4.52e-04 728M 77k tok/s 5.1s/step
+##  step 1850/5086 0.73B tok 2.63h
+##    PPL all=45.47 | RECOVERABLE(induction)=45.45 | rest=45.48 (n_rec=22529)
+##    RECALL near<512=0.377[0.371-0.383]n20496 | mid512-2048=0.357[0.334-0.379]n1741 | far2k-4k=0.407[0.344-0.469]n241 | xfar4k-8k=0.392[0.255-0.529]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1900/5086 loss=3.770 lr=4.44e-04 748M 77k tok/s 5.1s/step
+##  step 1900/5086 0.75B tok 2.71h
+##    PPL all=44.85 | RECOVERABLE(induction)=41.96 | rest=44.94 (n_rec=22529)
+##    RECALL near<512=0.390[0.383-0.396]n20496 | mid512-2048=0.354[0.332-0.377]n1741 | far2k-4k=0.378[0.320-0.436]n241 | xfar4k-8k=0.353[0.235-0.490]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 1950/5086 loss=3.802 lr=4.37e-04 767M 77k tok/s 5.1s/step
+##  step 1950/5086 0.77B tok 2.78h
+##    PPL all=44.33 | RECOVERABLE(induction)=41.58 | rest=44.41 (n_rec=22529)
+##    RECALL near<512=0.390[0.383-0.396]n20496 | mid512-2048=0.357[0.334-0.379]n1741 | far2k-4k=0.382[0.324-0.444]n241 | xfar4k-8k=0.412[0.275-0.549]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2000/5086 loss=3.716 lr=4.29e-04 787M 76k tok/s 5.1s/step
+##  step 2000/5086 0.79B tok 2.86h
+##    PPL all=43.86 | RECOVERABLE(induction)=39.07 | rest=44.01 (n_rec=22529)
+##    RECALL near<512=0.398[0.391-0.404]n20496 | mid512-2048=0.362[0.339-0.385]n1741 | far2k-4k=0.357[0.299-0.419]n241 | xfar4k-8k=0.373[0.255-0.510]n51 | xxfar>8k=0.000[0.000-0.000]n0
+##  ckpt step 2000
+#   step 2050/5086 loss=3.772 lr=4.21e-04 806M 76k tok/s 5.2s/step
+##  step 2050/5086 0.81B tok 2.94h
+##    PPL all=43.42 | RECOVERABLE(induction)=38.18 | rest=43.57 (n_rec=22529)
+##    RECALL near<512=0.400[0.393-0.407]n20496 | mid512-2048=0.372[0.347-0.393]n1741 | far2k-4k=0.415[0.353-0.477]n241 | xfar4k-8k=0.392[0.275-0.529]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2100/5086 loss=3.775 lr=4.13e-04 826M 76k tok/s 5.2s/step
+##  step 2100/5086 0.83B tok 3.02h
+##    PPL all=43.02 | RECOVERABLE(induction)=37.25 | rest=43.20 (n_rec=22529)
+##    RECALL near<512=0.400[0.394-0.407]n20496 | mid512-2048=0.367[0.343-0.389]n1741 | far2k-4k=0.390[0.332-0.452]n241 | xfar4k-8k=0.451[0.314-0.588]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2150/5086 loss=3.655 lr=4.04e-04 846M 76k tok/s 5.2s/step
+##  step 2150/5086 0.85B tok 3.10h
+##    PPL all=42.56 | RECOVERABLE(induction)=35.30 | rest=42.78 (n_rec=22529)
+##    RECALL near<512=0.412[0.406-0.419]n20496 | mid512-2048=0.379[0.356-0.401]n1741 | far2k-4k=0.423[0.361-0.481]n241 | xfar4k-8k=0.431[0.294-0.569]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2200/5086 loss=3.681 lr=3.96e-04 865M 76k tok/s 5.2s/step
+##  step 2200/5086 0.87B tok 3.18h
+##    PPL all=42.16 | RECOVERABLE(induction)=35.45 | rest=42.37 (n_rec=22529)
+##    RECALL near<512=0.412[0.405-0.418]n20496 | mid512-2048=0.373[0.350-0.396]n1741 | far2k-4k=0.402[0.340-0.465]n241 | xfar4k-8k=0.431[0.294-0.569]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2250/5086 loss=3.652 lr=3.88e-04 885M 76k tok/s 5.2s/step
+##  step 2250/5086 0.89B tok 3.25h
+##    PPL all=41.86 | RECOVERABLE(induction)=34.50 | rest=42.09 (n_rec=22529)
+##    RECALL near<512=0.411[0.404-0.418]n20496 | mid512-2048=0.370[0.346-0.392]n1741 | far2k-4k=0.407[0.344-0.469]n241 | xfar4k-8k=0.412[0.275-0.549]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2300/5086 loss=3.711 lr=3.80e-04 905M 76k tok/s 5.2s/step
+##  step 2300/5086 0.90B tok 3.33h
+##    PPL all=41.42 | RECOVERABLE(induction)=33.33 | rest=41.68 (n_rec=22529)
+##    RECALL near<512=0.416[0.409-0.423]n20496 | mid512-2048=0.381[0.357-0.403]n1741 | far2k-4k=0.402[0.340-0.465]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2350/5086 loss=3.654 lr=3.71e-04 924M 75k tok/s 5.2s/step
+##  step 2350/5086 0.92B tok 3.41h
+##    PPL all=41.07 | RECOVERABLE(induction)=32.07 | rest=41.36 (n_rec=22529)
+##    RECALL near<512=0.422[0.415-0.429]n20496 | mid512-2048=0.390[0.366-0.412]n1741 | far2k-4k=0.411[0.349-0.469]n241 | xfar4k-8k=0.431[0.294-0.569]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2400/5086 loss=3.684 lr=3.63e-04 944M 75k tok/s 5.2s/step
+##  step 2400/5086 0.94B tok 3.49h
+##    PPL all=40.88 | RECOVERABLE(induction)=32.06 | rest=41.16 (n_rec=22529)
+##    RECALL near<512=0.421[0.414-0.428]n20496 | mid512-2048=0.376[0.353-0.397]n1741 | far2k-4k=0.394[0.336-0.456]n241 | xfar4k-8k=0.431[0.294-0.569]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2450/5086 loss=3.629 lr=3.54e-04 964M 75k tok/s 5.2s/step
+##  step 2450/5086 0.96B tok 3.57h
+##    PPL all=40.42 | RECOVERABLE(induction)=30.11 | rest=40.76 (n_rec=22529)
+##    RECALL near<512=0.427[0.420-0.434]n20496 | mid512-2048=0.388[0.366-0.410]n1741 | far2k-4k=0.407[0.344-0.469]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2500/5086 loss=3.727 lr=3.46e-04 983M 75k tok/s 5.2s/step
+##  step 2500/5086 0.98B tok 3.64h
+##    PPL all=40.14 | RECOVERABLE(induction)=29.83 | rest=40.48 (n_rec=22529)
+##    RECALL near<512=0.433[0.426-0.439]n20496 | mid512-2048=0.380[0.358-0.403]n1741 | far2k-4k=0.411[0.349-0.477]n241 | xfar4k-8k=0.412[0.275-0.549]n51 | xxfar>8k=0.000[0.000-0.000]n0
+##  ckpt step 2500
+#   step 2550/5086 loss=3.632 lr=3.37e-04 1003M 75k tok/s 5.2s/step
+##  step 2550/5086 1.00B tok 3.72h
+##    PPL all=39.82 | RECOVERABLE(induction)=29.32 | rest=40.17 (n_rec=22529)
+##    RECALL near<512=0.433[0.426-0.440]n20496 | mid512-2048=0.384[0.361-0.407]n1741 | far2k-4k=0.390[0.328-0.456]n241 | xfar4k-8k=0.451[0.314-0.588]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2600/5086 loss=3.630 lr=3.29e-04 1023M 75k tok/s 5.3s/step
+##  step 2600/5086 1.02B tok 3.80h
+##    PPL all=39.54 | RECOVERABLE(induction)=29.12 | rest=39.88 (n_rec=22529)
+##    RECALL near<512=0.434[0.427-0.441]n20496 | mid512-2048=0.395[0.371-0.416]n1741 | far2k-4k=0.382[0.320-0.448]n241 | xfar4k-8k=0.412[0.275-0.549]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2650/5086 loss=3.714 lr=3.20e-04 1042M 75k tok/s 5.3s/step
+##  step 2650/5086 1.04B tok 3.88h
+##    PPL all=39.14 | RECOVERABLE(induction)=27.83 | rest=39.52 (n_rec=22529)
+##    RECALL near<512=0.443[0.436-0.449]n20496 | mid512-2048=0.394[0.372-0.416]n1741 | far2k-4k=0.427[0.365-0.490]n241 | xfar4k-8k=0.451[0.314-0.588]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2700/5086 loss=3.595 lr=3.12e-04 1062M 75k tok/s 5.3s/step
+##  step 2700/5086 1.06B tok 3.96h
+##    PPL all=38.85 | RECOVERABLE(induction)=26.84 | rest=39.26 (n_rec=22529)
+##    RECALL near<512=0.441[0.434-0.448]n20496 | mid512-2048=0.400[0.378-0.423]n1741 | far2k-4k=0.398[0.340-0.461]n241 | xfar4k-8k=0.431[0.294-0.569]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2750/5086 loss=3.665 lr=3.03e-04 1082M 75k tok/s 5.3s/step
+##  step 2750/5086 1.08B tok 4.04h
+##    PPL all=38.57 | RECOVERABLE(induction)=26.38 | rest=38.99 (n_rec=22529)
+##    RECALL near<512=0.448[0.441-0.454]n20496 | mid512-2048=0.396[0.373-0.418]n1741 | far2k-4k=0.436[0.373-0.498]n241 | xfar4k-8k=0.471[0.333-0.608]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2800/5086 loss=3.571 lr=2.95e-04 1101M 74k tok/s 5.3s/step
+##  step 2800/5086 1.10B tok 4.11h
+##    PPL all=38.33 | RECOVERABLE(induction)=25.77 | rest=38.76 (n_rec=22529)
+##    RECALL near<512=0.448[0.441-0.455]n20496 | mid512-2048=0.405[0.382-0.427]n1741 | far2k-4k=0.432[0.369-0.494]n241 | xfar4k-8k=0.451[0.314-0.588]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2850/5086 loss=3.535 lr=2.87e-04 1121M 74k tok/s 5.3s/step
+##  step 2850/5086 1.12B tok 4.19h
+##    PPL all=38.08 | RECOVERABLE(induction)=24.91 | rest=38.54 (n_rec=22529)
+##    RECALL near<512=0.453[0.446-0.460]n20496 | mid512-2048=0.408[0.385-0.431]n1741 | far2k-4k=0.423[0.361-0.485]n241 | xfar4k-8k=0.471[0.333-0.608]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2900/5086 loss=3.624 lr=2.78e-04 1141M 74k tok/s 5.3s/step
+##  step 2900/5086 1.14B tok 4.27h
+##    PPL all=37.85 | RECOVERABLE(induction)=24.47 | rest=38.32 (n_rec=22529)
+##    RECALL near<512=0.455[0.449-0.462]n20496 | mid512-2048=0.410[0.385-0.431]n1741 | far2k-4k=0.423[0.361-0.490]n241 | xfar4k-8k=0.431[0.294-0.569]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 2950/5086 loss=3.514 lr=2.70e-04 1160M 74k tok/s 5.3s/step
+##  step 2950/5086 1.16B tok 4.35h
+##    PPL all=37.61 | RECOVERABLE(induction)=24.25 | rest=38.08 (n_rec=22529)
+##    RECALL near<512=0.459[0.452-0.465]n20496 | mid512-2048=0.407[0.384-0.429]n1741 | far2k-4k=0.415[0.353-0.477]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3000/5086 loss=3.702 lr=2.62e-04 1180M 74k tok/s 5.3s/step
+##  step 3000/5086 1.18B tok 4.43h
+##    PPL all=37.36 | RECOVERABLE(induction)=24.00 | rest=37.83 (n_rec=22529)
+##    RECALL near<512=0.459[0.452-0.466]n20496 | mid512-2048=0.404[0.380-0.426]n1741 | far2k-4k=0.427[0.365-0.490]n241 | xfar4k-8k=0.451[0.314-0.588]n51 | xxfar>8k=0.000[0.000-0.000]n0
+##  ckpt step 3000
+#   step 3050/5086 loss=3.562 lr=2.53e-04 1200M 74k tok/s 5.3s/step
+##  step 3050/5086 1.20B tok 4.51h
+##    PPL all=37.11 | RECOVERABLE(induction)=23.35 | rest=37.60 (n_rec=22529)
+##    RECALL near<512=0.464[0.457-0.471]n20496 | mid512-2048=0.416[0.392-0.439]n1741 | far2k-4k=0.411[0.349-0.473]n241 | xfar4k-8k=0.471[0.333-0.608]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3100/5086 loss=3.616 lr=2.45e-04 1219M 74k tok/s 5.3s/step
+##  step 3100/5086 1.22B tok 4.58h
+##    PPL all=36.87 | RECOVERABLE(induction)=22.84 | rest=37.37 (n_rec=22529)
+##    RECALL near<512=0.468[0.462-0.475]n20496 | mid512-2048=0.412[0.389-0.435]n1741 | far2k-4k=0.419[0.357-0.485]n241 | xfar4k-8k=0.471[0.333-0.608]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3150/5086 loss=3.561 lr=2.37e-04 1239M 74k tok/s 5.3s/step
+##  step 3150/5086 1.24B tok 4.66h
+##    PPL all=36.70 | RECOVERABLE(induction)=22.24 | rest=37.22 (n_rec=22529)
+##    RECALL near<512=0.474[0.468-0.481]n20496 | mid512-2048=0.419[0.396-0.441]n1741 | far2k-4k=0.444[0.378-0.506]n241 | xfar4k-8k=0.510[0.373-0.647]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3200/5086 loss=3.554 lr=2.29e-04 1259M 74k tok/s 5.3s/step
+##  step 3200/5086 1.26B tok 4.74h
+##    PPL all=36.50 | RECOVERABLE(induction)=21.59 | rest=37.05 (n_rec=22529)
+##    RECALL near<512=0.477[0.470-0.484]n20496 | mid512-2048=0.407[0.383-0.429]n1741 | far2k-4k=0.415[0.357-0.477]n241 | xfar4k-8k=0.510[0.373-0.647]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3250/5086 loss=3.581 lr=2.21e-04 1278M 74k tok/s 5.3s/step
+##  step 3250/5086 1.28B tok 4.82h
+##    PPL all=36.29 | RECOVERABLE(induction)=21.42 | rest=36.83 (n_rec=22529)
+##    RECALL near<512=0.478[0.471-0.485]n20496 | mid512-2048=0.416[0.393-0.438]n1741 | far2k-4k=0.415[0.357-0.481]n241 | xfar4k-8k=0.510[0.373-0.647]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3300/5086 loss=3.502 lr=2.14e-04 1298M 74k tok/s 5.3s/step
+##  step 3300/5086 1.30B tok 4.90h
+##    PPL all=36.07 | RECOVERABLE(induction)=21.14 | rest=36.62 (n_rec=22529)
+##    RECALL near<512=0.481[0.474-0.488]n20496 | mid512-2048=0.411[0.388-0.433]n1741 | far2k-4k=0.419[0.357-0.485]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3350/5086 loss=3.494 lr=2.06e-04 1318M 74k tok/s 5.3s/step
+##  step 3350/5086 1.32B tok 4.98h
+##    PPL all=35.97 | RECOVERABLE(induction)=20.88 | rest=36.53 (n_rec=22529)
+##    RECALL near<512=0.484[0.478-0.491]n20496 | mid512-2048=0.422[0.398-0.445]n1741 | far2k-4k=0.427[0.365-0.490]n241 | xfar4k-8k=0.510[0.373-0.647]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3400/5086 loss=3.576 lr=1.99e-04 1337M 74k tok/s 5.3s/step
+##  step 3400/5086 1.34B tok 5.05h
+##    PPL all=35.77 | RECOVERABLE(induction)=20.68 | rest=36.33 (n_rec=22529)
+##    RECALL near<512=0.485[0.478-0.492]n20496 | mid512-2048=0.417[0.393-0.439]n1741 | far2k-4k=0.440[0.378-0.502]n241 | xfar4k-8k=0.451[0.314-0.588]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3450/5086 loss=3.605 lr=1.91e-04 1357M 74k tok/s 5.3s/step
+##  step 3450/5086 1.36B tok 5.13h
+##    PPL all=35.65 | RECOVERABLE(induction)=20.44 | rest=36.21 (n_rec=22529)
+##    RECALL near<512=0.484[0.478-0.491]n20496 | mid512-2048=0.420[0.396-0.442]n1741 | far2k-4k=0.436[0.373-0.498]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3500/5086 loss=3.565 lr=1.84e-04 1377M 73k tok/s 5.4s/step
+##  step 3500/5086 1.38B tok 5.21h
+##    PPL all=35.46 | RECOVERABLE(induction)=20.01 | rest=36.04 (n_rec=22529)
+##    RECALL near<512=0.488[0.482-0.495]n20496 | mid512-2048=0.416[0.392-0.438]n1741 | far2k-4k=0.415[0.353-0.477]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+##  ckpt step 3500
+#   step 3550/5086 loss=3.545 lr=1.77e-04 1396M 73k tok/s 5.4s/step
+##  step 3550/5086 1.40B tok 5.29h
+##    PPL all=35.33 | RECOVERABLE(induction)=19.99 | rest=35.91 (n_rec=22529)
+##    RECALL near<512=0.486[0.480-0.493]n20496 | mid512-2048=0.415[0.391-0.438]n1741 | far2k-4k=0.452[0.390-0.515]n241 | xfar4k-8k=0.510[0.373-0.647]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3600/5086 loss=3.691 lr=1.70e-04 1416M 73k tok/s 5.4s/step
+##  step 3600/5086 1.42B tok 5.37h
+##    PPL all=35.09 | RECOVERABLE(induction)=19.40 | rest=35.68 (n_rec=22529)
+##    RECALL near<512=0.490[0.483-0.497]n20496 | mid512-2048=0.422[0.398-0.444]n1741 | far2k-4k=0.440[0.378-0.502]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3650/5086 loss=3.463 lr=1.63e-04 1436M 73k tok/s 5.4s/step
+##  step 3650/5086 1.44B tok 5.44h
+##    PPL all=34.97 | RECOVERABLE(induction)=19.26 | rest=35.57 (n_rec=22529)
+##    RECALL near<512=0.492[0.485-0.499]n20496 | mid512-2048=0.424[0.401-0.446]n1741 | far2k-4k=0.456[0.394-0.523]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3700/5086 loss=3.356 lr=1.57e-04 1455M 73k tok/s 5.4s/step
+##  step 3700/5086 1.46B tok 5.52h
+##    PPL all=34.81 | RECOVERABLE(induction)=19.03 | rest=35.41 (n_rec=22529)
+##    RECALL near<512=0.493[0.486-0.500]n20496 | mid512-2048=0.424[0.400-0.446]n1741 | far2k-4k=0.440[0.378-0.502]n241 | xfar4k-8k=0.431[0.294-0.569]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3750/5086 loss=3.542 lr=1.50e-04 1475M 73k tok/s 5.4s/step
+##  step 3750/5086 1.47B tok 5.60h
+##    PPL all=34.67 | RECOVERABLE(induction)=18.77 | rest=35.28 (n_rec=22529)
+##    RECALL near<512=0.497[0.491-0.504]n20496 | mid512-2048=0.422[0.398-0.443]n1741 | far2k-4k=0.423[0.361-0.485]n241 | xfar4k-8k=0.451[0.314-0.588]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3800/5086 loss=3.468 lr=1.44e-04 1495M 73k tok/s 5.4s/step
+##  step 3800/5086 1.49B tok 5.68h
+##    PPL all=34.55 | RECOVERABLE(induction)=18.79 | rest=35.15 (n_rec=22529)
+##    RECALL near<512=0.495[0.488-0.502]n20496 | mid512-2048=0.425[0.402-0.447]n1741 | far2k-4k=0.448[0.386-0.510]n241 | xfar4k-8k=0.471[0.333-0.608]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3850/5086 loss=3.567 lr=1.38e-04 1514M 73k tok/s 5.4s/step
+##  step 3850/5086 1.51B tok 5.76h
+##    PPL all=34.48 | RECOVERABLE(induction)=18.63 | rest=35.08 (n_rec=22529)
+##    RECALL near<512=0.497[0.490-0.504]n20496 | mid512-2048=0.423[0.399-0.446]n1741 | far2k-4k=0.440[0.378-0.502]n241 | xfar4k-8k=0.471[0.333-0.608]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3900/5086 loss=3.395 lr=1.32e-04 1534M 73k tok/s 5.4s/step
+##  step 3900/5086 1.53B tok 5.83h
+##    PPL all=34.33 | RECOVERABLE(induction)=18.32 | rest=34.95 (n_rec=22529)
+##    RECALL near<512=0.499[0.492-0.506]n20496 | mid512-2048=0.426[0.401-0.449]n1741 | far2k-4k=0.456[0.394-0.519]n241 | xfar4k-8k=0.471[0.333-0.608]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 3950/5086 loss=3.698 lr=1.26e-04 1554M 73k tok/s 5.4s/step
+##  step 3950/5086 1.55B tok 5.91h
+##    PPL all=34.20 | RECOVERABLE(induction)=18.07 | rest=34.82 (n_rec=22529)
+##    RECALL near<512=0.503[0.496-0.509]n20496 | mid512-2048=0.426[0.403-0.448]n1741 | far2k-4k=0.444[0.382-0.506]n241 | xfar4k-8k=0.471[0.333-0.608]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4000/5086 loss=3.585 lr=1.21e-04 1573M 73k tok/s 5.4s/step
+##  step 4000/5086 1.57B tok 5.99h
+##    PPL all=34.08 | RECOVERABLE(induction)=17.95 | rest=34.70 (n_rec=22529)
+##    RECALL near<512=0.502[0.495-0.508]n20496 | mid512-2048=0.432[0.408-0.454]n1741 | far2k-4k=0.465[0.402-0.527]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+##  ckpt step 4000
+#   step 4050/5086 loss=3.449 lr=1.16e-04 1593M 73k tok/s 5.4s/step
+##  step 4050/5086 1.59B tok 6.07h
+##    PPL all=33.96 | RECOVERABLE(induction)=17.77 | rest=34.59 (n_rec=22529)
+##    RECALL near<512=0.501[0.494-0.508]n20496 | mid512-2048=0.435[0.411-0.457]n1741 | far2k-4k=0.448[0.386-0.510]n241 | xfar4k-8k=0.451[0.314-0.588]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4100/5086 loss=3.411 lr=1.10e-04 1613M 73k tok/s 5.4s/step
+##  step 4100/5086 1.61B tok 6.15h
+##    PPL all=33.86 | RECOVERABLE(induction)=17.57 | rest=34.50 (n_rec=22529)
+##    RECALL near<512=0.504[0.497-0.511]n20496 | mid512-2048=0.429[0.406-0.451]n1741 | far2k-4k=0.440[0.378-0.502]n241 | xfar4k-8k=0.510[0.373-0.647]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4150/5086 loss=3.531 lr=1.06e-04 1632M 73k tok/s 5.4s/step
+##  step 4150/5086 1.63B tok 6.23h
+##    PPL all=33.75 | RECOVERABLE(induction)=17.06 | rest=34.40 (n_rec=22529)
+##    RECALL near<512=0.510[0.504-0.517]n20496 | mid512-2048=0.445[0.422-0.468]n1741 | far2k-4k=0.440[0.378-0.498]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4200/5086 loss=3.441 lr=1.01e-04 1652M 73k tok/s 5.4s/step
+##  step 4200/5086 1.65B tok 6.30h
+##    PPL all=33.63 | RECOVERABLE(induction)=16.97 | rest=34.29 (n_rec=22529)
+##    RECALL near<512=0.512[0.506-0.519]n20496 | mid512-2048=0.445[0.421-0.467]n1741 | far2k-4k=0.444[0.382-0.506]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4250/5086 loss=3.372 lr=9.66e-05 1672M 73k tok/s 5.4s/step
+##  step 4250/5086 1.67B tok 6.38h
+##    PPL all=33.55 | RECOVERABLE(induction)=16.95 | rest=34.20 (n_rec=22529)
+##    RECALL near<512=0.512[0.505-0.518]n20496 | mid512-2048=0.435[0.411-0.457]n1741 | far2k-4k=0.448[0.386-0.510]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4300/5086 loss=3.491 lr=9.25e-05 1691M 73k tok/s 5.4s/step
+##  step 4300/5086 1.69B tok 6.46h
+##    PPL all=33.47 | RECOVERABLE(induction)=16.81 | rest=34.13 (n_rec=22529)
+##    RECALL near<512=0.510[0.503-0.517]n20496 | mid512-2048=0.443[0.419-0.466]n1741 | far2k-4k=0.427[0.365-0.490]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4350/5086 loss=3.288 lr=8.85e-05 1711M 73k tok/s 5.4s/step
+##  step 4350/5086 1.71B tok 6.54h
+##    PPL all=33.37 | RECOVERABLE(induction)=16.78 | rest=34.02 (n_rec=22529)
+##    RECALL near<512=0.511[0.504-0.518]n20496 | mid512-2048=0.440[0.417-0.462]n1741 | far2k-4k=0.452[0.390-0.515]n241 | xfar4k-8k=0.471[0.333-0.608]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4400/5086 loss=3.443 lr=8.48e-05 1731M 73k tok/s 5.4s/step
+##  step 4400/5086 1.73B tok 6.62h
+##    PPL all=33.29 | RECOVERABLE(induction)=16.68 | rest=33.94 (n_rec=22529)
+##    RECALL near<512=0.514[0.508-0.521]n20496 | mid512-2048=0.436[0.412-0.459]n1741 | far2k-4k=0.456[0.394-0.519]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4450/5086 loss=3.465 lr=8.14e-05 1750M 73k tok/s 5.4s/step
+##  step 4450/5086 1.75B tok 6.70h
+##    PPL all=33.21 | RECOVERABLE(induction)=16.47 | rest=33.88 (n_rec=22529)
+##    RECALL near<512=0.515[0.508-0.522]n20496 | mid512-2048=0.443[0.419-0.465]n1741 | far2k-4k=0.436[0.369-0.498]n241 | xfar4k-8k=0.471[0.333-0.608]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4500/5086 loss=3.452 lr=7.82e-05 1770M 73k tok/s 5.4s/step
+##  step 4500/5086 1.77B tok 6.77h
+##    PPL all=33.11 | RECOVERABLE(induction)=16.41 | rest=33.78 (n_rec=22529)
+##    RECALL near<512=0.516[0.509-0.523]n20496 | mid512-2048=0.442[0.419-0.464]n1741 | far2k-4k=0.444[0.382-0.506]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+##  ckpt step 4500
+#   step 4550/5086 loss=3.435 lr=7.53e-05 1790M 73k tok/s 5.4s/step
+##  step 4550/5086 1.79B tok 6.85h
+##    PPL all=33.08 | RECOVERABLE(induction)=16.38 | rest=33.75 (n_rec=22529)
+##    RECALL near<512=0.517[0.511-0.524]n20496 | mid512-2048=0.450[0.427-0.473]n1741 | far2k-4k=0.444[0.378-0.506]n241 | xfar4k-8k=0.451[0.314-0.588]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4600/5086 loss=3.397 lr=7.26e-05 1809M 73k tok/s 5.4s/step
+##  step 4600/5086 1.81B tok 6.91h
+##    PPL all=32.99 | RECOVERABLE(induction)=16.20 | rest=33.66 (n_rec=22529)
+##    RECALL near<512=0.519[0.512-0.526]n20496 | mid512-2048=0.450[0.426-0.472]n1741 | far2k-4k=0.456[0.390-0.515]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4650/5086 loss=3.417 lr=7.01e-05 1829M 73k tok/s 5.4s/step
+##  step 4650/5086 1.83B tok 6.95h
+##    PPL all=32.92 | RECOVERABLE(induction)=16.09 | rest=33.59 (n_rec=22529)
+##    RECALL near<512=0.519[0.512-0.525]n20496 | mid512-2048=0.440[0.416-0.462]n1741 | far2k-4k=0.456[0.394-0.519]n241 | xfar4k-8k=0.510[0.373-0.647]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4700/5086 loss=3.656 lr=6.79e-05 1849M 73k tok/s 5.4s/step
+##  step 4700/5086 1.85B tok 6.99h
+##    PPL all=32.89 | RECOVERABLE(induction)=15.96 | rest=33.57 (n_rec=22529)
+##    RECALL near<512=0.521[0.514-0.528]n20496 | mid512-2048=0.446[0.422-0.468]n1741 | far2k-4k=0.440[0.378-0.502]n241 | xfar4k-8k=0.510[0.373-0.647]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4750/5086 loss=3.609 lr=6.60e-05 1868M 74k tok/s 5.3s/step
+##  step 4750/5086 1.87B tok 7.03h
+##    PPL all=32.83 | RECOVERABLE(induction)=15.94 | rest=33.51 (n_rec=22529)
+##    RECALL near<512=0.519[0.512-0.526]n20496 | mid512-2048=0.455[0.431-0.477]n1741 | far2k-4k=0.461[0.398-0.523]n241 | xfar4k-8k=0.510[0.373-0.647]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4800/5086 loss=3.471 lr=6.44e-05 1888M 74k tok/s 5.3s/step
+##  step 4800/5086 1.89B tok 7.07h
+##    PPL all=32.80 | RECOVERABLE(induction)=16.04 | rest=33.47 (n_rec=22529)
+##    RECALL near<512=0.519[0.512-0.526]n20496 | mid512-2048=0.449[0.425-0.471]n1741 | far2k-4k=0.465[0.402-0.527]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4850/5086 loss=3.358 lr=6.30e-05 1907M 74k tok/s 5.3s/step
+##  step 4850/5086 1.91B tok 7.12h
+##    PPL all=32.75 | RECOVERABLE(induction)=15.93 | rest=33.42 (n_rec=22529)
+##    RECALL near<512=0.520[0.513-0.526]n20496 | mid512-2048=0.441[0.418-0.464]n1741 | far2k-4k=0.485[0.423-0.548]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4900/5086 loss=3.328 lr=6.19e-05 1927M 75k tok/s 5.3s/step
+##  step 4900/5086 1.93B tok 7.16h
+##    PPL all=32.69 | RECOVERABLE(induction)=15.77 | rest=33.37 (n_rec=22529)
+##    RECALL near<512=0.524[0.517-0.531]n20496 | mid512-2048=0.449[0.426-0.472]n1741 | far2k-4k=0.461[0.398-0.523]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 4950/5086 loss=3.325 lr=6.10e-05 1947M 75k tok/s 5.2s/step
+##  step 4950/5086 1.95B tok 7.20h
+##    PPL all=32.66 | RECOVERABLE(induction)=15.85 | rest=33.33 (n_rec=22529)
+##    RECALL near<512=0.521[0.515-0.528]n20496 | mid512-2048=0.454[0.430-0.477]n1741 | far2k-4k=0.456[0.394-0.519]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+#   step 5000/5086 loss=3.409 lr=6.04e-05 1966M 75k tok/s 5.2s/step
+##  step 5000/5086 1.97B tok 7.24h
+##    PPL all=32.59 | RECOVERABLE(induction)=15.60 | rest=33.28 (n_rec=22529)
+##    RECALL near<512=0.522[0.515-0.529]n20496 | mid512-2048=0.454[0.430-0.476]n1741 | far2k-4k=0.456[0.390-0.519]n241 | xfar4k-8k=0.471[0.333-0.608]n51 | xxfar>8k=0.000[0.000-0.000]n0
+##  ckpt step 5000
+#   step 5050/5086 loss=3.454 lr=6.01e-05 1986M 76k tok/s 5.2s/step
+##  step 5050/5086 1.99B tok 7.28h
+##    PPL all=32.57 | RECOVERABLE(induction)=15.60 | rest=33.25 (n_rec=22529)
+##    RECALL near<512=0.522[0.516-0.529]n20496 | mid512-2048=0.454[0.431-0.476]n1741 | far2k-4k=0.452[0.390-0.515]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0
+# ===== FINAL =====
+##  step 5086/5086 2.00B tok 7.31h
+##    PPL all=32.54 | RECOVERABLE(induction)=15.51 | rest=33.23 (n_rec=22529)
+##    RECALL near<512=0.525[0.518-0.532]n20496 | mid512-2048=0.457[0.434-0.480]n1741 | far2k-4k=0.452[0.390-0.515]n241 | xfar4k-8k=0.490[0.353-0.627]n51 | xxfar>8k=0.000[0.000-0.000]n0

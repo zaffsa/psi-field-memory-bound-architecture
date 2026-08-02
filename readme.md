@@ -14,7 +14,7 @@ architecture's internals are **not** disclosed here — this is about *what it d
 Both models: **127M parameters · 2.0B tokens · same corpus (FineWeb-Edu) · same seeds.** The table below
 is a **high-resolution held-out evaluation** of the two final checkpoints on the same validation set —
 ~19.6M tokens scanned, **544,029 qualifying retrieval events**, so even the long-range rows are on solid
-statistical footing (n and 95% confidence intervals are in [`eval_highres_2B.log`](eval_highres_2B.log)):
+statistical footing (n and 95% confidence intervals are in [`logs/eval_highres_2B.log`](logs/eval_highres_2B.log)):
 
 | final (2.0B tokens) | **Psi-field** | Mamba-2 | verdict |
 |---|---|---|---|
@@ -59,7 +59,6 @@ reached roughly **100,000 tokens/second**, and a scaled-up **7-billion-parameter
 on **one** card. Because cost scales with memory rather than compute, this is a regime where AMD hardware
 stops being a second-class "port" and becomes a first-class target.
 
-Validating this at larger scale is what I intend to use **AMD Developer Cloud** credits for.
 
 ---
 
@@ -73,7 +72,7 @@ Validating this at larger scale is what I intend to use **AMD Developer Cloud** 
 - **Pure PyTorch, no vendor-locked kernels** — runs anywhere without modification.
 - **Ran unmodified on a single AMD MI300X** at ~100k tokens/second.
 - A **7B-parameter** variant fits on **one** MI300X.
-- Fully reproducible evaluation; every number here traces to a line in the training logs in this repository.
+- Fully reproducible evaluation; every number here traces to a line in one of the logs in this repository.
 
 All of this was done by **one person**, on a self-funded budget.
 
@@ -92,16 +91,15 @@ only, not mechanism.
 - **The advantage is concentrated at short range.** Beyond ~512 tokens, my model and the baseline are
   statistically tied — the decisive wins are in short-range recall and in-context retrieval, not at long
   distances. I'm not claiming a long-range edge, because the data doesn't show one.
-- This is a **127M-parameter** study. Larger-scale confirmation is the next step (and the reason for the
-  AMD credits request).
+- This is a **127M-parameter** study. Larger-scale confirmation is the next step.
 
 ---
 
 ## What's in here
 
-- [`psi-field_127m.log`](psi-field_127m.log) — full raw training log of my model.
-- [`mamba2_127m.log`](mamba2_127m.log) — full raw training log of the Mamba-2 baseline.
-- [`eval_highres_2B.log`](eval_highres_2B.log) — the 544k-event held-out evaluation the results
+- [`logs/psi-field_127m.log`](logs/psi-field_127m.log) — full raw training log of my model.
+- [`logs/mamba2_127m.log`](logs/mamba2_127m.log) — full raw training log of the Mamba-2 baseline.
+- [`logs/eval_highres_2B.log`](logs/eval_highres_2B.log) — the 544k-event held-out evaluation the results
   table is built from, with confidence intervals.
 
 Every claim in this README is a line in one of those files.
@@ -110,5 +108,6 @@ Every claim in this README is a line in one of those files.
 
 ## Author
 
-Original architecture and experiments by **Samir Sauma** — an independent, self-funded researcher based
+Original architecture and experiments by **Samir Oliveira Sauma** — an independent, self-funded researcher based
 in Brazil. This work has no team behind it: one person, one budget.
+
